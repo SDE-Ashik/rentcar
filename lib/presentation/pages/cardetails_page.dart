@@ -251,6 +251,8 @@
 
 
 
+import 'package:car_rental_app/presentation/pages/booknow_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -267,6 +269,7 @@ class CarDetailsPage extends StatelessWidget {
     double longitude = double.tryParse(car['longitude'] ?? '-74.0060') ?? -74.0060;
 
     return Scaffold(
+      
       appBar: AppBar(
         title: Text(car['name'] ?? 'Car Details'),
         backgroundColor: Color.fromARGB(255, 102, 114, 193),
@@ -360,7 +363,7 @@ class CarDetailsPage extends StatelessWidget {
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context,);
+                          Navigator.of(context).push(MaterialPageRoute(builder:(context) => BookNowPage(car:car  ), ));
                           
                           // Navigate to booking logic or page
                         },
